@@ -1,0 +1,11 @@
+com
+net
+in
+gov
+org
+ie
+uk
+au
+us
+de
+br
