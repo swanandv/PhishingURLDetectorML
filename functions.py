@@ -162,7 +162,7 @@ def extract_features(link):
 
 	## Uncommon top level domain:
 	#headers.append("RareTLD")
-	tlds = open("A:\Research\Implementation\Dataset\most_common_tld.txt","r")
+	tlds = open("\Dataset\most_common_tld.txt","r")
 	flag = 0  
 	for tld in tlds:
 		if tld == domain[2]+"\n": 
@@ -199,7 +199,7 @@ def extract_features(link):
 
 	## famous brands in subdomain
 	#headers.append("BrandsInSubdomain")
-	file = open("A:\Research\Implementation\Dataset\\famous_brands.txt","r")
+	file = open("Dataset\\famous_brands.txt","r")
 	brands = file.readlines()
 	flag1 = 0
 	for brand in brands:
@@ -238,7 +238,7 @@ def extract_features(link):
 
 	### Free-form free-hosting sites
 	#headers.append("FreeHosting")
-	hostingfile =  open("A:\Research\Implementation\Dataset\\free_hosting_domains.txt","r")
+	hostingfile =  open("\Dataset\\free_hosting_domains.txt","r")
 	sites = hostingfile.readlines()
 	flag3=0
 	for site in sites:
@@ -256,7 +256,7 @@ def extract_features(link):
 
 
 	## Famous brand in domain
-	file = open("A:\Research\Implementation\Dataset\\famous_brands.txt","r")
+	file = open("\Dataset\\famous_brands.txt","r")
 	brands = file.readlines()
 	flag4 = 0
 	for brand in brands:
