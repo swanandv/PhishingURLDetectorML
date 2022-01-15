@@ -17,8 +17,11 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
 
-absolute_path = "<<<<absolute path here>>>>"
-dataset_file = +"\Dataset\extracted_features4.csv"
+import os
+here = os.path.dirname(os.path.abspath(__file__))
+filename = os.path.join(here, 'Dataset\extracted_features4.csv')
+
+dataset_file = filename #"Dataset\extracted_features4.csv"
 
 while(True):
 	ch =  int(input('''

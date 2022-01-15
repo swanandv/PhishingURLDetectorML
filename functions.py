@@ -28,6 +28,10 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import StandardScaler 
 from sklearn.model_selection import train_test_split
 
+import os
+here = os.path.dirname(os.path.abspath(__file__))
+filename = os.path.join(here, 'Dataset/')
+
 def extract_features(link):
 	url=link
 	row=[]
@@ -162,7 +166,7 @@ def extract_features(link):
 
 	## Uncommon top level domain:
 	#headers.append("RareTLD")
-	tlds = open("\Dataset\most_common_tld.txt","r")
+	tlds = (filename+"most_common_tld.txt","r")
 	flag = 0  
 	for tld in tlds:
 		if tld == domain[2]+"\n": 
@@ -199,7 +203,7 @@ def extract_features(link):
 
 	## famous brands in subdomain
 	#headers.append("BrandsInSubdomain")
-	file = open("Dataset\\famous_brands.txt","r")
+	file = open(filename+"famous_brands.txt","r")
 	brands = file.readlines()
 	flag1 = 0
 	for brand in brands:
@@ -238,7 +242,7 @@ def extract_features(link):
 
 	### Free-form free-hosting sites
 	#headers.append("FreeHosting")
-	hostingfile =  open("\Dataset\\free_hosting_domains.txt","r")
+	hostingfile =  open(filename+"free_hosting_domains.txt","r")
 	sites = hostingfile.readlines()
 	flag3=0
 	for site in sites:
@@ -256,7 +260,7 @@ def extract_features(link):
 
 
 	## Famous brand in domain
-	file = open("\Dataset\\famous_brands.txt","r")
+	file = open(filename+"famous_brands.txt","r")
 	brands = file.readlines()
 	flag4 = 0
 	for brand in brands:
@@ -295,8 +299,8 @@ def extract_features(link):
 
 
 def save_model(model):
-	filename = 'saved_ml_model.sav'
-	pickle.dump(model, open(filename, 'wb'))
+	filenames = 'saved_ml_model.sav'
+	pickle.dump(model, open(filenames, 'wb'))
 	print("Model saved to file.")
 
 	##pickle.dump(x_scaled,open('saved_scaler.sav','wb'))
@@ -340,8 +344,8 @@ def train_model(classifier,file):
 
 
 def load_model():
-	filename = 'saved_ml_model.sav'
-	loaded_model = pickle.load(open(filename, 'rb'))
+	filenames = 'saved_ml_model.sav'
+	loaded_model = pickle.load(open(filenames, 'rb'))
 	print("Model Loading Successful")
 	return loaded_model
 	#loaded_scaler =  pickle.load(open('saved_scaler.sav','rb'))
